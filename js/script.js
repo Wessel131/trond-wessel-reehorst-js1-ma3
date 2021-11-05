@@ -2,7 +2,7 @@
 console.log("Task 1");
 const getRemainder = (a, b) => a % b;
 
-console.log(getRemainder(5, 8));
+console.log("Remainder: ", getRemainder(10, 8));
 
 // Task 2
 console.log("Task 2");
@@ -20,7 +20,7 @@ async function getGames() {
     //  Getting the array from the results.
     const listIt = results.results;
 
-    // Just setting the inner HTML to empty so that I can add to it in the for loop.
+    // Just setting the inner HTML to empty so that the loading animation clears.
     resultsContainer.innerHTML = "";
 
     //  Posting the listIt properties to visualize the path in the for loop.
@@ -28,20 +28,21 @@ async function getGames() {
 
     for (let i = 0; i < listIt.length; i++) {
 
-        //  Trying to console.log() the names of the objects displayed in the array.
-        console.log("Game: " + listIt[i].name + " " + "Rating: " + listIt[i].rating + " " + "Tags: " + listIt[i].tags.length);
+        //  Console.log() the names of the objects displayed in the array.
+        /*  console.log("Game: " + listIt[i].name + " " + "Rating: " + listIt[i].rating + " " + "Tags: " + listIt[i].tags.length); */
 
-        //  Want to add my information to the inner HTML of the <div>.
+        //  Want to add my information to the inner HTML of the <div>. Though I don't get why the ` doesn't create new lines for each value in the HTML when loaded.
         resultsContainer.innerHTML +=
             `<div class = "theGames">Game: ${listIt[i].name}
             Rating: ${listIt[i].rating}
             Tags: ${listIt[i].tags.length}</div>`;
 
-        //  Displaying only the first 8 results, then break.
+        //  Displaying only the first 8 results, then break. i = 7 because the counter i starts at 0.
         if (i === 7) {
             break;
         };
     };
 };
 
+//  Calling the function
 getGames();
