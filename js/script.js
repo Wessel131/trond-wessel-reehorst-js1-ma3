@@ -17,19 +17,28 @@ async function getGames() {
 
     const results = await response.json();
 
+    //  Getting the array from the results.
     const listIt = results.results;
 
+    // Just setting the inner HTML to empty so that I can add to it in the for loop.
     resultsContainer.innerHTML = "";
 
+    //  Posting the listIt properties to visualize the path in the for loop.
     console.log(listIt);
 
-    for (let i = 0; i === 7; i++) {
+    for (let i = 0; i < listIt.length; i++) {
 
-        console.log(listIt.results);
+        //  Trying to console.log() the names of the objects displayed in the array.
+        console.log("Game: " + listIt[i].name + " " + "Rating: " + listIt[i].rating + " " + "Tags: " + listIt[i].tags.length);
 
-        /* resultsContainer.innerHTML += `<div class = "theGames">${listIt}</div>` */
+        //  Want to add my information to the inner HTML of the <div>.
+        resultsContainer.innerHTML += `<div class = "theGames">${listIt[i].name+listIt[i].rating+listIt[i].tags}</div>`;
+
+        //  Displaying only the first 8 results, then break.
+        if (i === 7) {
+            break;
+        }
     }
 }
-
 /* 0: Object { slug: "a-hat-in-time-nyakuza-metro", name: "A Hat in Time - Nyakuza Metro", playtime: 0, … }; */
 getGames();
