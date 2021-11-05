@@ -24,7 +24,7 @@ async function getGames() {
     resultsContainer.innerHTML = "";
 
     //  Posting the listIt properties to visualize the path in the for loop.
-    console.log(listIt);
+    /*     console.log(listIt); */
 
     for (let i = 0; i < listIt.length; i++) {
 
@@ -32,13 +32,16 @@ async function getGames() {
         console.log("Game: " + listIt[i].name + " " + "Rating: " + listIt[i].rating + " " + "Tags: " + listIt[i].tags.length);
 
         //  Want to add my information to the inner HTML of the <div>.
-        resultsContainer.innerHTML += `<div class = "theGames">${listIt[i].name+listIt[i].rating+listIt[i].tags}</div>`;
+        resultsContainer.innerHTML +=
+            `<div class = "theGames">Game: ${listIt[i].name}
+            Rating: ${listIt[i].rating}
+            Tags: ${listIt[i].tags.length}</div>`;
 
         //  Displaying only the first 8 results, then break.
         if (i === 7) {
             break;
-        }
-    }
-}
-/* 0: Object { slug: "a-hat-in-time-nyakuza-metro", name: "A Hat in Time - Nyakuza Metro", playtime: 0, … }; */
+        };
+    };
+};
+
 getGames();
